@@ -1,0 +1,28 @@
+Name:                migrate
+Version:             0.1
+Synopsis:            A simple framework for database migrations
+Description:         A simple framework for database migrations
+License:             WTFPL
+Author:              Chris Bolton
+Maintainer:          c@chrisbolton.me
+Stability:           Experimental
+Category:            Database
+Build-type:          Simple
+Cabal-version:       >=1.2
+
+Library
+  hs-source-dirs: src
+  exposed-modules:
+  other-modules:
+  build-depends:
+  extensions: OverloadedStrings
+  ghc-options: -Wall
+
+  source-repository head
+    type: git
+    location: http://github.com/saiko-chriskun/migrate
+
+  source-repository this
+    type: git
+    location: http://github.com/saiko-chriskun/migrate
+    tag: v0.1
