@@ -21,5 +21,7 @@ createMigrationsFile :: IO ()
 createMigrationsFile = writeFile "migrations.hs" $ unlines ["main = do", "    newMigration"]
 
 newMigration :: UnixTime -> String
-newMigration time = unlines ["", "newMigration = migrate " ++ (show $ utSeconds time) ++ " $ do", ""]
+newMigration time =
+    unlines ["", "newMigration :: IO Result",
+             "newMigration = migrate " ++ (show $ utSeconds time) ++ " Migratable", ""]
 
