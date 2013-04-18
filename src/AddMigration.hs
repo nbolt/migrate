@@ -15,7 +15,7 @@ main = do
 createMigrationsFile :: IO ()
 createMigrationsFile = writeFile "migrations.hs" $
     unlines ["import Database.Migrate.MyBackend", "",
-             "main = do", "    createTableIfNonExistent Migratable", "    newMigration"]
+             "main = do", "    createTable Migratable", "    newMigration"]
 
 newMigration :: UnixTime -> String
 newMigration time =
