@@ -1,4 +1,4 @@
-module Migrate where
+module Database.Migrate where
 
 data Result = Result Bool String
 

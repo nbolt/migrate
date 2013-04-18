@@ -10,6 +10,12 @@ Category:            Database
 Build-type:          Simple
 Cabal-version:       >=1.2
 
+Library
+  hs-source-dirs: src
+  build-depends: base
+  exposed-modules: Database.Migrate
+  ghc-options: -Wall
+
 Executable addMigration
   hs-source-dirs: src
   main-is: AddMigration.hs
