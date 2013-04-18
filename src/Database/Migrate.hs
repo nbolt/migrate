@@ -3,7 +3,7 @@ module Main where
 import System.Directory
 import Data.UnixTime
 
-data Result = Result String Bool
+data Result = Result Bool String
 
 class Migratable m where
     migrate :: Int -> m -> IO ()
