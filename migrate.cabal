@@ -12,7 +12,7 @@ Cabal-version:       >=1.2
 
 Executable addMigration
   hs-source-dirs: src
-  main-is: Database/Migrate.hs
+  main-is: AddMigration.hs
   build-depends:
     base,
     directory,

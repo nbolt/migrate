@@ -3,11 +3,6 @@ module Main where
 import System.Directory
 import Data.UnixTime
 
-data Result = Result Bool String
-
-class Migratable m where
-    migrate :: Int -> m -> IO ()
-
 main :: IO ()
 main = do
     now    <- getUnixTime
@@ -18,7 +13,9 @@ main = do
     appendFile "migrations.hs" $ newMigration now
 
 createMigrationsFile :: IO ()
-createMigrationsFile = writeFile "migrations.hs" $ unlines ["main = do", "    newMigration"]
+createMigrationsFile = writeFile "migrations.hs" $
+    unlines ["import Database.Migrate.MyBackend", "",
+             "main = do", "    createTableIfNonExistent Migratable", "    newMigration"]
 
 newMigration :: UnixTime -> String
 newMigration time =
