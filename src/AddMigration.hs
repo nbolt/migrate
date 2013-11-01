@@ -14,11 +14,11 @@ main = do
 
 createMigrationsFile :: IO ()
 createMigrationsFile = writeFile "migrations.hs" $
-    unlines ["import Database.Migrate.MyBackend", "",
-             "main = do", "    createTable Migratable", "    newMigration"]
+    unlines ["import Control.Monad.State", "import Database.Migrate", "import Database.Migrate.Backend", "import Database.Backend", "",
+             "main = do", "    handle <- liftIO $ dbHandle", "    runStateT migrations Migratable", "",
+             "migrations = do", "    createTable", ""]
 
 newMigration :: UnixTime -> String
 newMigration time =
-    unlines ["", "newMigration :: IO Result",
-             "newMigration = migrate " ++ (show $ utSeconds time) ++ " Migratable", ""]
+    unlines ["", "newMigration = migrate " ++ (show $ utSeconds time) ++ " Migratable"]
 
