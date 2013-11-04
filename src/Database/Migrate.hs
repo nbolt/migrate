@@ -4,6 +4,7 @@ import Control.Monad.State
 import Control.Monad.Trans.State as TS
 
 class Migratable m where
+    createDB    :: StateT m IO Bool
     createTable :: StateT m IO Bool
     migrate     :: Integer -> m -> StateT m IO Bool
     checkT      :: Integer -> m -> StateT m IO Bool

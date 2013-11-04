@@ -12,7 +12,7 @@ Cabal-version:       >=1.2
 
 Library
   hs-source-dirs: src
-  build-depends: base, mtl, transformers
+  build-depends: base, mtl, transformers, yaml
   exposed-modules: Database.Migrate
   ghc-options: -Wall
 
